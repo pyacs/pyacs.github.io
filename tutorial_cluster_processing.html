@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pygeca: GNSS cluster processing with GAMIT &mdash; PYACS 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting started GPS time series" href="tutorial_gts.html" />
+    <link rel="prev" title="How to install pyacs?" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> PYACS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="foreword.html">What is pyacs?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foreword.html#the-philosophy-of-pyacs">The philosophy of pyacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foreword.html#the-components-of-pyacs">The components of pyacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">How to install pyacs?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pygeca: GNSS cluster processing with GAMIT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#making-job-command-files">Making job command files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#submitting-a-job-command-file-to-oar">Submitting a job command file to OAR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pygeca-resubmit-py">pygeca_resubmit.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-before-processing-pygeca-check-gamit-py">Check before processing: pygeca_check_gamit.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-after-processing-pygeca-check-sinex-py">Check after processing: pygeca_check_sinex.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-sites-to-an-existing-processing">Adding sites to an existing processing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_gts.html">Getting started GPS time series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_inversion.html">Getting started slip inversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">pyacs</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PYACS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>pygeca: GNSS cluster processing with GAMIT</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tutorial_cluster_processing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pygeca-gnss-cluster-processing-with-gamit">
+<h1>pygeca: GNSS cluster processing with GAMIT<a class="headerlink" href="#pygeca-gnss-cluster-processing-with-gamit" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>pygeca stands for pyacs-gamit-en-cluster-a-geoazur.
+pygeca is the part of pyacs that allows you to process large GNSS networks in a cluster computing environment using the OAR scheduler.
+All commands starts with <a href="#id1"><span class="problematic" id="id2">pygeca_</span></a>.</p>
+<div class="section" id="making-job-command-files">
+<h2>Making job command files<a class="headerlink" href="#making-job-command-files" title="Permalink to this headline">¶</a></h2>
+<p>job command files are text files including a list of commands interpreted by OAR to send processing to available nodes.
+A typical job files looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="o">.</span> <span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">nocquet</span><span class="o">/.</span><span class="n">bashrc</span>
+<span class="c1">#OAR -l core=1,walltime=60:00:0</span>
+<span class="c1">#OAR -n soam_001_2018</span>
+<span class="c1">#OAR -O %jobid%.out</span>
+<span class="c1">#OAR -p ib=&#39;none&#39; OR ib=&#39;DDR&#39; OR ib=&#39;QDR&#39;</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">tmp</span>
+<span class="n">pygeca_subnetworks</span><span class="o">.</span><span class="n">py</span>  <span class="o">--</span><span class="n">dir_conf</span> <span class="o">/</span><span class="n">projet</span><span class="o">/</span><span class="n">gps</span><span class="o">/</span><span class="n">geodesy</span><span class="o">/</span><span class="n">process</span><span class="o">/</span><span class="n">soam_setup</span> <span class="o">--</span><span class="n">sd</span> <span class="mi">001</span> <span class="o">--</span><span class="n">ed</span> <span class="mi">001</span> <span class="o">--</span><span class="n">year</span> <span class="mi">2018</span> <span class="o">--</span><span class="nb">type</span> <span class="n">best</span> <span class="o">--</span><span class="n">experiment</span> <span class="n">soam</span>  <span class="o">&gt;</span> <span class="n">log</span><span class="o">.</span><span class="n">pygeca</span><span class="o">.</span><span class="n">soam_001_2018</span>
+<span class="n">mv</span> <span class="o">-</span><span class="n">f</span> <span class="n">nocquet_soam_2018_001</span> <span class="o">/</span><span class="n">projet</span><span class="o">/</span><span class="n">gps</span><span class="o">/</span><span class="n">SOAM_PROC</span><span class="o">/</span><span class="mi">2018</span><span class="o">/.</span>
+</pre></div>
+</div>
+<p>This file will be read from the node where OAR sent your processing. It tells:
+* reads your .bashrc configuration file so that all paths and python version are the one you want.
+* assign 1 core for your processing and kill your job if it has been running for more than 60 hours
+* gives a name to your processing. This name will be used when using the oarstat command to see that your job is actually being processed
+* gives a name for output that would appear on the screen if run from the command line
+* then defines the queues where your job can be process. A queue is basically a list of potential nodes.
+* tells where the processing will be done on the node, here this is /tmp, a directory ceaned by the sustem every day
+* the next line is the actual command for doing the processing
+* finally the processing directory is moved from the node back to where you want the result to be</p>
+<p>The pyacs command for generating the job command file is pygeca_make_job.py. The job command file we just describe has been generated by the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pygeca_make_job</span><span class="o">.</span><span class="n">py</span>  <span class="o">--</span><span class="n">dir_conf</span> <span class="o">/</span><span class="n">projet</span><span class="o">/</span><span class="n">gps</span><span class="o">/</span><span class="n">geodesy</span><span class="o">/</span><span class="n">process</span><span class="o">/</span><span class="n">soam_setup</span> <span class="o">--</span><span class="n">sd</span> <span class="mi">001</span> <span class="o">--</span><span class="n">ed</span> <span class="mi">001</span> <span class="o">--</span><span class="n">year</span> <span class="mi">2018</span> <span class="o">--</span><span class="nb">type</span> <span class="n">best</span> <span class="o">--</span><span class="n">experiment</span> <span class="n">soam</span> <span class="o">--</span><span class="n">queue</span> <span class="n">QDR</span><span class="o">/</span><span class="n">DDR</span><span class="o">/</span><span class="n">NONE</span> <span class="o">--</span><span class="n">walltime</span> <span class="mi">60</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="submitting-a-job-command-file-to-oar">
+<h2>Submitting a job command file to OAR<a class="headerlink" href="#submitting-a-job-command-file-to-oar" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>This is done by the oarsub command: ::</dt><dd><p>oarsub -S ./soam_247_2018 -t besteffort</p>
+</dd>
+</dl>
+<p>The -t besteffort option controls your priority. besteffort means a low priority.</p>
+<p>The oarstat command allows you to check the status of your job.</p>
+<dl class="simple">
+<dt>If you want to send many job at the same time, just use a combination of ls and awk: ::</dt><dd><p>ls soam_* | awk ‘NR&gt;0 &amp;&amp; NR&lt;55{print “oarsub -S ./”$1,” -t besteffort “}’ | sh</p>
+</dd>
+</dl>
+<p>will send the doy 1 to 54 for processing.</p>
+</div>
+<div class="section" id="pygeca-resubmit-py">
+<h2>pygeca_resubmit.py<a class="headerlink" href="#pygeca-resubmit-py" title="Permalink to this headline">¶</a></h2>
+<p>Instead of the combination of ls and awk, pygeca_resubmit.py can be used.
+pygeca_resubmit.py will search all processing directories, check the results and write the oarsub line if needed.
+For instance, to check resubmit processing for doys 246-248 for year 2018:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pygeca_resubmit</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">sd</span> <span class="mi">246</span> <span class="o">--</span><span class="n">ed</span> <span class="mi">248</span> <span class="o">--</span><span class="n">year</span> <span class="mi">2018</span> <span class="o">--</span><span class="n">experiment</span> <span class="n">soam</span>
+</pre></div>
+</div>
+<p>The output would be something like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oarsub</span> <span class="o">-</span><span class="n">S</span> <span class="o">./</span><span class="n">soam_246_2018</span> <span class="o">-</span><span class="n">t</span> <span class="n">besteffort</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">Rf</span> <span class="n">nocquet_soam_2018_247</span> <span class="p">;</span> <span class="n">oarsub</span> <span class="o">-</span><span class="n">S</span> <span class="o">./</span><span class="n">soam_247_2018</span> <span class="o">-</span><span class="n">t</span> <span class="n">besteffort</span>
+<span class="n">oarsub</span> <span class="o">-</span><span class="n">S</span> <span class="o">./</span><span class="n">soam_248_2018</span> <span class="o">-</span><span class="n">t</span> <span class="n">besteffort</span>
+</pre></div>
+</div>
+<p>Telling that doys 246 and 248 have no directory and will be processed, while 247 was already processed but with an error and needs to be remove before submitting the now processing.</p>
+</div>
+<div class="section" id="check-before-processing-pygeca-check-gamit-py">
+<h2>Check before processing: pygeca_check_gamit.py<a class="headerlink" href="#check-before-processing-pygeca-check-gamit-py" title="Permalink to this headline">¶</a></h2>
+<p>pygeca_check_gamit.py checks that all information required for processing are OK and provides a summary.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pygeca_check_gamit</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">dir_conf</span> <span class="o">/</span><span class="n">projet</span><span class="o">/</span><span class="n">gps</span><span class="o">/</span><span class="n">geodesy</span><span class="o">/</span><span class="n">process</span><span class="o">/</span><span class="n">soam_setup</span> <span class="o">-</span><span class="n">sd</span> <span class="mi">001</span> <span class="o">-</span><span class="n">ed</span> <span class="mi">010</span> <span class="o">-</span><span class="n">year</span> <span class="mi">2018</span> <span class="o">--</span><span class="n">experiment</span> <span class="n">soam</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="check-after-processing-pygeca-check-sinex-py">
+<h2>Check after processing: pygeca_check_sinex.py<a class="headerlink" href="#check-after-processing-pygeca-check-sinex-py" title="Permalink to this headline">¶</a></h2>
+<p>You probably want to know whether all sites were correctly processed, or check your processing is up-to-date with respect to your rinex archive.
+Your first need to generate a list of sinex files (actually ssc files) that you want to check:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="n">proc_soam_0</span><span class="o">*/*</span><span class="n">ss</span> <span class="o">&gt;</span> <span class="n">lss</span>
+</pre></div>
+</div>
+<p>Then running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pygeca_check_sinex</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">dir_conf</span> <span class="o">/</span><span class="n">projet</span><span class="o">/</span><span class="n">gps</span><span class="o">/</span><span class="n">geodesy</span><span class="o">/</span><span class="n">process</span><span class="o">/</span><span class="n">soam_setup</span> <span class="o">-</span><span class="n">lsinex</span> <span class="n">lss</span> <span class="o">-</span><span class="nb">type</span> <span class="n">best</span> <span class="o">--</span><span class="n">verbose</span> <span class="o">--</span><span class="nb">all</span>
+</pre></div>
+</div>
+<p>will provide some information about potential problems. Furthermore, if generates a command line for pygeca_redo, a tool that allows you to add new sites
+to an existing processing without re-processing everything.</p>
+</div>
+<div class="section" id="adding-sites-to-an-existing-processing">
+<h2>Adding sites to an existing processing<a class="headerlink" href="#adding-sites-to-an-existing-processing" title="Permalink to this headline">¶</a></h2>
+<p>This can be done with pygeca_redo.py which has the same syntax as pygeca_subnetworks.py except you have to specify the new sites to be added.
+pygeca_redo_make_job.py is the same has pygeca_make_job.py but for creating a job that will add the new sites to an existing processing using pygeca_redo.py</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorial_gts.html" class="btn btn-neutral float-right" title="Getting started GPS time series" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral float-left" title="How to install pyacs?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016, Jean-Mathieu Nocquet IRD/Geoazur
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

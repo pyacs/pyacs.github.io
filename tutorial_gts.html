@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting started GPS time series &mdash; PYACS 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting started slip inversion" href="tutorial_inversion.html" />
+    <link rel="prev" title="pygeca: GNSS cluster processing with GAMIT" href="tutorial_cluster_processing.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> PYACS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="foreword.html">What is pyacs?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foreword.html#the-philosophy-of-pyacs">The philosophy of pyacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foreword.html#the-components-of-pyacs">The components of pyacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">How to install pyacs?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_cluster_processing.html">pygeca: GNSS cluster processing with GAMIT</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started GPS time series</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#making-time-series">Making time series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#visualizing-time-series">Visualizing time series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#detrending-time-series">Detrending time series</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#using-pyacs-help">Using pyacs’help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chaining-methods">Chaining methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#automatic-analysis">Automatic analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_inversion.html">Getting started slip inversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">pyacs</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PYACS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Getting started GPS time series</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tutorial_gts.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started-gps-time-series">
+<h1>Getting started GPS time series<a class="headerlink" href="#getting-started-gps-time-series" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="making-time-series">
+<h2>Making time series<a class="headerlink" href="#making-time-series" title="Permalink to this headline">¶</a></h2>
+<p>Assuming that you have a set of sinex files in <em>mysinex</em> directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="n">mysinex</span><span class="o">/*.</span><span class="n">snx</span> <span class="o">&gt;</span> <span class="n">lsinex</span>
+</pre></div>
+</div>
+<p>and that you have downloaded the following files from your prefered IGS data center:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ftp</span><span class="p">:</span><span class="o">//</span><span class="n">igs</span><span class="o">-</span><span class="n">rf</span><span class="o">.</span><span class="n">ign</span><span class="o">.</span><span class="n">fr</span><span class="o">/</span><span class="n">pub</span><span class="o">/</span><span class="n">discontinuities</span><span class="o">/</span><span class="n">soln</span><span class="o">.</span><span class="n">snx</span>
+<span class="n">ftp</span><span class="p">:</span><span class="o">//</span><span class="n">igs</span><span class="o">.</span><span class="n">ign</span><span class="o">.</span><span class="n">fr</span><span class="o">/</span><span class="n">pub</span><span class="o">/</span><span class="n">igs</span><span class="o">/</span><span class="n">products</span><span class="o">/</span><span class="mi">1883</span><span class="o">/</span><span class="n">IGS16P06</span><span class="o">.</span><span class="n">ssc</span><span class="o">.</span><span class="n">Z</span>
+<span class="n">uncompress</span> <span class="n">IGS16P06</span><span class="o">.</span><span class="n">ssc</span><span class="o">.</span><span class="n">Z</span>
+</pre></div>
+</div>
+<p>You can then run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pyacs_make_time_series</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">lsinex</span> <span class="n">lsinex</span> <span class="o">-</span><span class="n">experiment</span> <span class="n">run01</span> <span class="o">-</span><span class="n">ref_sinex</span> <span class="n">IGS16P06</span><span class="o">.</span><span class="n">ssc</span> <span class="o">--</span><span class="n">discontinuity</span> <span class="n">soln</span><span class="o">.</span><span class="n">snx</span>
+</pre></div>
+</div>
+<p>In directory <em>run01</em>, you now have the following directories:</p>
+<ul class="simple">
+<li><p><em>pos</em> : directory of time series in GAMIT/GLOBK PBO format</p></li>
+<li><p><em>res_pos</em> : directory of residual time series with respect to your reference solution (here <em>IGS16P06.ssc</em>)</p></li>
+<li><p><em>stat</em> : some statistic of your solution</p></li>
+</ul>
+</div>
+<div class="section" id="visualizing-time-series">
+<h2>Visualizing time series<a class="headerlink" href="#visualizing-time-series" title="Permalink to this headline">¶</a></h2>
+<p>Run ipyacs.py to enter the pyacs interactive environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd run01/pos
+ipyacs.py
+Python 2.7.10 |Anaconda 2.4.1 (x86_64)| (default, Sep 15 2015, 14:29:08)
+Type &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+IPython 4.0.1 -- An enhanced Interactive Python.
+?         -&gt; Introduction and overview of IPython&#39;s features.
+%quickref -&gt; Quick reference.
+help      -&gt; Python&#39;s own help system.
+object?   -&gt; Details about &#39;object&#39;, use &#39;object??&#39; for extra details.
+-- Welcome to pyacs interactive environment -- version  0.01
+- Importing pyacs.pygts module
+- No mb_files found
+- No kenv file found
+- No cats file found
+=&gt; Reading  QUEM.pos
+.
+.
+=&gt; Reading  TU01.pos
+- No Gamit/Globk track NEU file found
+- Importing numpy as np
+- Importing math
+- Importing matplotlib.pyplot as plt
+In [1]:
+</pre></div>
+</div>
+<p>pyacs has tried to read everything it could. The resulting loaded time series are stored
+in a Sgts (Super Geodetic Time Series) instance called <em>ts</em>. Individual Gts (Geodetic Time Series) are
+store as attribute of <em>ts</em>.</p>
+<p>To visualize an individual time series:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">QUEM</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>should provide:</p>
+<img alt="_static/ts_quem_raw.png" src="_static/ts_quem_raw.png" />
+<div class="section" id="detrending-time-series">
+<h3>Detrending time series<a class="headerlink" href="#detrending-time-series" title="Permalink to this headline">¶</a></h3>
+<p>Detrending is simply achieved applying the detrend() method to the Gts instance ts.QUEM:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">detrended_QUEM</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">QUEM</span><span class="o">.</span><span class="n">detrended</span><span class="p">()</span>
+<span class="n">detrended_QUEM</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="using-pyacs-help">
+<h2>Using pyacs’help<a class="headerlink" href="#using-pyacs-help" title="Permalink to this headline">¶</a></h2>
+<p>For any function, help is available from the command line of the interactive environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">QUEM</span><span class="o">.</span><span class="n">plot</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Press <em>q</em> to exit from the <em>help</em> environment.
+Selecting a specific period <em>[2008.0, 2010.0]</em> and highlighting two periods [[2008.1,2008.7],[2009.6,2009.8]] can be simply obtained:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">QUEM</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="p">[</span><span class="mf">2008.0</span><span class="p">,</span> <span class="mf">2010.0</span><span class="p">],</span><span class="n">lperiod</span><span class="o">=</span><span class="p">[[</span><span class="mf">2008.1</span><span class="p">,</span><span class="mf">2008.7</span><span class="p">],[</span><span class="mf">2009.6</span><span class="p">,</span><span class="mf">2009.8</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="chaining-methods">
+<h2>Chaining methods<a class="headerlink" href="#chaining-methods" title="Permalink to this headline">¶</a></h2>
+<p>In general, a method applied on a Gts instance will return a new Gts so that various methods can be successively applied:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">QUEM</span><span class="o">.</span><span class="n">find_outliers_percentage</span><span class="p">(</span><span class="n">percentage</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span><span class="o">.</span><span class="n">remove_outliers</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The line above does:</p>
+<ul class="simple">
+<li><p>select the 0.5% largest residuals of the detrended time series; returns a new Gts</p></li>
+<li><p>plot the returned Gts; returns the Gts</p></li>
+<li><p>remove the flagged outliers; returns a new time series with the outliers removed</p></li>
+<li><p>plot the new time series</p></li>
+</ul>
+</div>
+<div class="section" id="automatic-analysis">
+<h2>Automatic analysis<a class="headerlink" href="#automatic-analysis" title="Permalink to this headline">¶</a></h2>
+<p>A very basic automatic analysis is provided through the lazy_pyacs method. In order to
+visualize how it works, we create a fake time series with offsets:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>import numpy as np            # import the Numeric Python library
+import pyacs.pygts.Gts as Gts # import the Gts class
+my_ts=Gts(code=&#39;XXXX&#39;)        # creates Gts instance for site with code XXXX
+my_dates=np.arange(2010.0,2015.0,0.01) # creates a list of dates
+ndates=my_dates.shape[0]          # number of dates
+data=np.zeros((ndates,7))     # the future data of the XXXX time series
+data[:,0]=my_dates                        # populates the dates column vector
+data[:,1:]=np.random.normal(0.0,0.001,(ndates,6)) # creates a time series with 0 velocities and 1 mm random noise
+lindex=np.where(data[:,0]&gt;2011.0) # get the index of the time series after 2011.0
+data[lindex,1]=data[lindex,1]+0.005 # add an offset of 5 mm on the north component after 2011.0
+lindex=np.where(data[:,0]&gt;2012.0) # get the index of the time series after 2011.0
+data[lindex,2]=data[lindex,2]+0.002 # add an offset of 2 mm on the east component after 2012.0
+data[:,4:]=data[:,4:]**2 # standard deviation on the 3 components
+my_ts.data=data               # data is now the data of the XXXX time series
+my_ts.plot(error_scale=1.0,center=False)   # plot the time series
+my_lazy_ts=my_ts.lazy_pyacs() # lazy pyacs analysis
+my_detrended_ts=my_lazy_ts.detrend_seasonal() # get the detrended time series with offsets estimated
+my_detrended_ts.info() # gets the values of the modeled time series
+my_detrended_ts.plot() # plots the resulting time series
+print &#39;Contents of XXXX.eq_rename&#39;
+!cat XXXX.eq_rename           # cat the eq_rename created using a system command
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorial_inversion.html" class="btn btn-neutral float-right" title="Getting started slip inversion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tutorial_cluster_processing.html" class="btn btn-neutral float-left" title="pygeca: GNSS cluster processing with GAMIT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016, Jean-Mathieu Nocquet IRD/Geoazur
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

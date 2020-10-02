@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyacs.gts.lib.plot.plot module &mdash; PYACS 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyacs.gts.lib.plot.plot_ts module" href="pyacs.gts.lib.plot.plot_ts.html" />
+    <link rel="prev" title="pyacs.gts.lib.plot.make_stitle module" href="pyacs.gts.lib.plot.make_stitle.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> PYACS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="foreword.html">What is pyacs?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foreword.html#the-philosophy-of-pyacs">The philosophy of pyacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foreword.html#the-components-of-pyacs">The components of pyacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">How to install pyacs?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_cluster_processing.html">pygeca: GNSS cluster processing with GAMIT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_gts.html">Getting started GPS time series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_inversion.html">Getting started slip inversion</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pyacs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pyacs.html">pyacs package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="pyacs.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="pyacs.gts.html">pyacs.gts package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyacs.lib.html">pyacs.lib package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyacs.sinex.html">pyacs.sinex package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyacs.sol.html">pyacs.sol package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyacs.html#module-pyacs">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PYACS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">pyacs</a> &raquo;</li>
+        
+          <li><a href="pyacs.html">pyacs package</a> &raquo;</li>
+        
+          <li><a href="pyacs.gts.html">pyacs.gts package</a> &raquo;</li>
+        
+          <li><a href="pyacs.gts.lib.html">pyacs.gts.lib package</a> &raquo;</li>
+        
+          <li><a href="pyacs.gts.lib.plot.html">pyacs.gts.lib.plot package</a> &raquo;</li>
+        
+      <li>pyacs.gts.lib.plot.plot module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/pyacs.gts.lib.plot.plot.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-pyacs.gts.lib.plot.plot">
+<span id="pyacs-gts-lib-plot-plot-module"></span><h1>pyacs.gts.lib.plot.plot module<a class="headerlink" href="#module-pyacs.gts.lib.plot.plot" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="pyacs.gts.lib.plot.plot.plot">
+<code class="sig-prename descclassname">pyacs.gts.lib.plot.plot.</code><code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">title</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">loffset</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">loutliers</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">date</span><span class="o">=</span><span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">yaxis</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">yupaxis</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">xticks_minor_locator</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">lcomponent</span><span class="o">=</span><span class="default_value">['N', 'E', 'U']</span></em>, <em class="sig-param"><span class="n">error_scale</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">lperiod</span><span class="o">=</span><span class="default_value">[[]]</span></em>, <em class="sig-param"><span class="n">lvline</span><span class="o">=</span><span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">save_dir_plots</span><span class="o">=</span><span class="default_value">'.'</span></em>, <em class="sig-param"><span class="n">save</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">show</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">'mm'</span></em>, <em class="sig-param"><span class="n">date_unit</span><span class="o">=</span><span class="default_value">'decyear'</span></em>, <em class="sig-param"><span class="n">date_ref</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">center</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">superimposed</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lcolor</span><span class="o">=</span><span class="default_value">['r', 'g', 'c', 'm', 'y', 'k', 'b']</span></em>, <em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">legend</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">set_zero_at_date</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">grid</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">plot_size</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">info</span><span class="o">=</span><span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">xlabel_fmt</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/gts/lib/plot/plot.html#plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.gts.lib.plot.plot.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a plot of a North-East-Up time series and related info (offsets, outliers) using Matplotlib
+Coordinates of the time series are assumed to be in meters
+default plots units will be mm; Use unit=’m’ to get meters instead</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> – string to be added to the site name as a plot title</p></li>
+<li><p><strong>loffset</strong> – boolean
+print a dash vertical line at offset dates</p></li>
+<li><p><strong>loutliers</strong> – boolean
+print outliers</p></li>
+<li><p><strong>verbose</strong> – boolean
+verbose mode</p></li>
+<li><p><strong>date</strong> – [sdate,edate]
+start and end date for plots
+sdate and edate in decimal years if date_unit is either ‘decyear’ or ‘cal’, or in days if date_unit is ‘days’</p></li>
+<li><p><strong>yaxis</strong> – [min_y,max_y]
+min and max value for the yaxis
+if not provided automatically adjusted</p></li>
+<li><p><strong>yupaxis</strong> – same as yaxis but applies to the up component only</p></li>
+<li><p><strong>xticks_minor_locator</strong> – where xticks_minor_locator will be placed. Float when date_unit is ‘decyear’ or ‘days’, a string ‘%Y’,’%m’,’%d’ is date_unit is ‘cal’.</p></li>
+<li><p><strong>lcomponent</strong> – list of components to be plotted (default =[‘N’,’E’,’U’])</p></li>
+<li><p><strong>error_scale</strong> – scaling factor for error bars (default = 1.0, 0 means no error bar)</p></li>
+<li><p><strong>lperiod</strong> – list of periods to be drawn in background (color=light salmon)</p></li>
+<li><p><strong>lvline</strong> – list of dates where vertical lines will be drawn in background (color=green)</p></li>
+<li><p><strong>save_dir_plots</strong> – directory used for saving the plots</p></li>
+<li><p><strong>save</strong> – name, save the plot into name, if simply True an automatic name is given</p></li>
+<li><p><strong>show</strong> – boolean, is True show the plot</p></li>
+<li><p><strong>unit</strong> – ‘m’,’cm’,’mm’, default=’mm’</p></li>
+<li><p><strong>date_unit</strong> – ‘decyear’ or ‘cal’ or ‘days’, default=’decyear’</p></li>
+<li><p><strong>date_ref</strong> – reference date, default=0.0</p></li>
+<li><p><strong>center</strong> – boolean, if True the y_axis is centered around the mean value for the plotted period</p></li>
+<li><p><strong>superimposed</strong> – if a gts is provided, it is superimposed to the master, default=None</p></li>
+<li><p><strong>lcolor</strong> – color list used for the superimposed time series, default=[‘r’,’g’,’c’,’m’,’y’,’k’,’b’]</p></li>
+<li><p><strong>label</strong> – label for superimposed time series to be displayed in legend, default=None</p></li>
+<li><p><strong>legend</strong> – boolean. Set true to display label for superimposed time series, default=False</p></li>
+<li><p><strong>set_zero_at_date</strong> – date at which the master and superimposed gts will be equal (default=None). date can also be a list with [date,offset_north,offset_east,offset_up]</p></li>
+<li><p><strong>plot_size</strong> – plot size as a tuple. Default, best guess.</p></li>
+<li><p><strong>grid</strong> – boolean</p></li>
+<li><p><strong>info</strong> – title to appear in time series subplots</p></li>
+<li><p><strong>**kwargs</strong> – <p>any argument to be passed to  matplotlib.pyplot.errorbar</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Note</dt>
+<dd class="field-even"><p>The list of kwargs are:</p>
+</dd>
+</dl>
+<p>{  ‘linewidth’ : 0,       ‘marker’ : marker_main_symbol ,       ‘markersize’ : marker_main_size,        ‘markerfacecolor’ : marker_main_color,       ‘markeredgecolor’ : marker_main_color,       ‘markeredgewidth’ : marker_main_colorlw,       ‘ecolor’ : error_bar_color,       ‘elinewidth’ : error_bar_linewidth,       ‘capsize’ : error_bar_capsize }</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pyacs.gts.lib.plot.plot_ts.html" class="btn btn-neutral float-right" title="pyacs.gts.lib.plot.plot_ts module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pyacs.gts.lib.plot.make_stitle.html" class="btn btn-neutral float-left" title="pyacs.gts.lib.plot.make_stitle module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016, Jean-Mathieu Nocquet IRD/Geoazur
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

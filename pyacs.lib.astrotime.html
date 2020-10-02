@@ -1,0 +1,985 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyacs.lib.astrotime module &mdash; PYACS 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyacs.lib.coordinates module" href="pyacs.lib.coordinates.html" />
+    <link rel="prev" title="pyacs.lib package" href="pyacs.lib.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> PYACS
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="foreword.html">What is pyacs?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foreword.html#the-philosophy-of-pyacs">The philosophy of pyacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foreword.html#the-components-of-pyacs">The components of pyacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">How to install pyacs?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_cluster_processing.html">pygeca: GNSS cluster processing with GAMIT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_gts.html">Getting started GPS time series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_inversion.html">Getting started slip inversion</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pyacs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pyacs.html">pyacs package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="pyacs.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pyacs.gts.html">pyacs.gts package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="pyacs.lib.html">pyacs.lib package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyacs.sinex.html">pyacs.sinex package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyacs.sol.html">pyacs.sol package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyacs.html#module-pyacs">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PYACS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">pyacs</a> &raquo;</li>
+        
+          <li><a href="pyacs.html">pyacs package</a> &raquo;</li>
+        
+          <li><a href="pyacs.lib.html">pyacs.lib package</a> &raquo;</li>
+        
+      <li>pyacs.lib.astrotime module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/pyacs.lib.astrotime.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-pyacs.lib.astrotime">
+<span id="pyacs-lib-astrotime-module"></span><h1>pyacs.lib.astrotime module<a class="headerlink" href="#module-pyacs.lib.astrotime" title="Permalink to this headline">¶</a></h1>
+<p>AstroTime.py is a traduction from perl module Astro::Time distributed by CPAN 
+and written by Chris Phillips (Chris.Phillips&#64;csiro.au). Conversion to python made by Jean-Mathieu Nocquet (Geoazur - CNRS-IRD-OCA-Univ. Nice, nocquet&#64;geoazur.unice.fr)</p>
+<p>AstroTime contains a set of Python routines for time based
+conversions, such as conversion between calendar dates and Modified
+Julian day and conversion from UT to local sidereal time. Included are
+routines for conversion between numerical and string representation of
+angles. All string functions removed.</p>
+<p>Conversion from and to datetime objects have also been added for convenience.</p>
+<dl class="field-list simple">
+<dt class="field-odd">note</dt>
+<dd class="field-odd"><p>This module is intended dates manipulation, but leap seconds for instance are not handled.        See the GPSTime module for GPS, UTC times conversions.</p>
+</dd>
+<dt class="field-even">note</dt>
+<dd class="field-even"><p>python 3.6 : all / operator changed to // to force integer operations</p>
+</dd>
+<dt class="field-odd">warning</dt>
+<dd class="field-odd"><p>!!! all conversions not specifying ut or uts use 12h00mn00s as a default. ut is the decimal fraction of day
+and uts is the number of seconds since 00h00m00.0s</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.cal2dayno">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">cal2dayno</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">day</span></em>, <em class="sig-param"><span class="n">month</span></em>, <em class="sig-param"><span class="n">year</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#cal2dayno"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.cal2dayno" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the day of year (doy).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>day</strong><strong>,</strong><strong>month</strong><strong>,</strong><strong>year</strong> – </p>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>int,int,int</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>doy of year as int</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; import pyacs
+&gt;&gt;&gt; pyacs.cal2dayno(01,01,2000)
+&gt;&gt;&gt; 1
+&gt;&gt;&gt; pyacs.cal2dayno(29,02,2000)
+&gt;&gt;&gt; 60
+&gt;&gt;&gt; pyacs.cal2dayno(29.,02,2000)
+&gt;&gt;&gt; 60.
+&gt;&gt;&gt; pyacs.cal2dayno(29,02,2001)
+&gt;&gt;&gt; !!!  29  out of range
+&gt;&gt;&gt; !!! bad day
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.cal2mjd">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">cal2mjd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">day</span></em>, <em class="sig-param"><span class="n">month</span></em>, <em class="sig-param"><span class="n">year</span></em>, <em class="sig-param"><span class="n">ut</span><span class="o">=</span><span class="default_value">0.5</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#cal2mjd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.cal2mjd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a calendar date (universal time) into modified Julian day number.
+mjd     Modified Julian day (JD-2400000.5)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>month</strong><strong>, </strong><strong>year</strong> (<em>day</em><em>,</em>) – </p>
+</dd>
+</dl>
+<p>:param ut : day fraction ([0.,1.[)
+:returns: mjd (modified Julian day (julian day -2400000.5))
+:rtype: float
+:note: Be aware that when ut is not provided, then the middle of the day is used. See example.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyacs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">cal2mjd</span><span class="p">(</span><span class="mi">29</span><span class="p">,</span><span class="mi">02</span><span class="p">,</span><span class="mi">2000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">51603.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">cal2mjd</span><span class="p">(</span><span class="mi">29</span><span class="p">,</span><span class="mi">02</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="n">ut</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">51603.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.cal2decyear">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">cal2decyear</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">day</span></em>, <em class="sig-param"><span class="n">month</span></em>, <em class="sig-param"><span class="n">year</span></em>, <em class="sig-param"><span class="n">ut</span><span class="o">=</span><span class="default_value">0.5</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#cal2decyear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.cal2decyear" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts a calendar date to decimal year</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>month</strong><strong>, </strong><strong>year</strong> (<em>day</em><em>,</em>) – </p>
+</dd>
+</dl>
+<p>:param ut : day fraction ([0.,1.[)
+:returns: decimal year
+:rtype: float
+:note: Be aware that when ut is not provided, then the middle of the day is used.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.cal2datetime">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">cal2datetime</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">day</span></em>, <em class="sig-param"><span class="n">month</span></em>, <em class="sig-param"><span class="n">year</span></em>, <em class="sig-param"><span class="n">ut</span><span class="o">=</span><span class="default_value">0.5</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#cal2datetime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.cal2datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts a calendar date to a datime python instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>month</strong><strong>, </strong><strong>year</strong> (<em>day</em><em>,</em>) – </p>
+</dd>
+</dl>
+<p>:param ut : day fraction ([0.,1.[), optional</p>
+<p>:note:!!! the returned datetime is at 12:00, that is ut=0.5 by default</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.dayno2cal">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">dayno2cal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dayno</span></em>, <em class="sig-param"><span class="n">year</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#dayno2cal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.dayno2cal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the day and month corresponding to dayno of year.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>year</strong> (<em>dayno</em><em>,</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>day, month</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.dayno2mjd">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">dayno2mjd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dayno</span></em>, <em class="sig-param"><span class="n">year</span></em>, <em class="sig-param"><span class="n">ut</span><span class="o">=</span><span class="default_value">0.5</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#dayno2mjd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.dayno2mjd" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts a dayno and year to modified Julian day</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>year</strong> (<em>dayno</em><em>,</em>) – </p></li>
+<li><p><strong>ut</strong> – day fraction, optional</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>modified Julian day (julian day - 2400000.5)</p>
+</dd>
+<dt class="field-odd">Note</dt>
+<dd class="field-odd"><p>Be aware that when ut is not provided, then the middle of the day is used. See example.</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyacs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">dayno2mjd</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="mi">2000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">51603.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">dayno2mjd</span><span class="p">(</span><span class="mf">60.</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="n">ut</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">51603.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.dayno2decyear">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">dayno2decyear</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dayno</span></em>, <em class="sig-param"><span class="n">year</span></em>, <em class="sig-param"><span class="n">ut</span><span class="o">=</span><span class="default_value">0.5</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#dayno2decyear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.dayno2decyear" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts julian day to decimal year</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>year</strong> (<em>dayno</em><em>,</em>) – </p></li>
+<li><p><strong>ut</strong> – day fraction, optional</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>decimal year</p>
+</dd>
+<dt class="field-odd">Note</dt>
+<dd class="field-odd"><p>!!! accounts for leap years with 366 days</p>
+</dd>
+<dt class="field-even">Note</dt>
+<dd class="field-even"><p>!!! unless ut is specified, the returned decimal years is at 12:00, that is ut=0.5 by default</p>
+</dd>
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyacs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">dayno2decyear</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="mi">1999</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">1999.16301369863</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">dayno2decyear</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="mi">2000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">2000.1625683060108</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">dayno2decyear</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="mi">2001</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">2001.16301369863</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">dayno2decyear</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="mi">2001</span><span class="p">,</span><span class="n">ut</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">2001.1616438356164</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.dayno2datetime">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">dayno2datetime</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dayno</span></em>, <em class="sig-param"><span class="n">year</span></em>, <em class="sig-param"><span class="n">ut</span><span class="o">=</span><span class="default_value">0.5</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#dayno2datetime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.dayno2datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>julian day to datetime python instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>year</strong> (<em>dayno</em><em>,</em>) – </p></li>
+<li><p><strong>ut</strong> – day fraction, optional</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>datetime</p>
+</dd>
+</dl>
+<p>:note:!!! the returned datetime is at 12:00, that is uts=24.0*60.0*60/2.0 by default</p>
+<p>:note:!!! specify uts for other time of the day</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.mjd2cal">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">mjd2cal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mjd</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#mjd2cal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.mjd2cal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a modified Julian day number into calendar date (universal time). (based on the slalib routine sla_djcl).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mjd</strong> – modified Julian day (JD-2400000.5)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>day,month,year,ut</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int,int,int,float</p>
+</dd>
+<dt class="field-even">Note</dt>
+<dd class="field-even"><p>ut is the the day fraction in [0., 1.[.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.mjd2dayno">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">mjd2dayno</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mjd</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#mjd2dayno"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.mjd2dayno" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts a modified Julian day into year and dayno (universal time).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mjd</strong> – modified julian day</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dayno,year,ut</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int,int,float</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyacs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">mjd2dayno</span><span class="p">(</span><span class="mf">51603.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">mjd2dayno</span><span class="p">(</span><span class="mf">51603.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.mjd2decyear">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">mjd2decyear</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mjd</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#mjd2decyear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.mjd2decyear" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts a modified julian day to decimal year conversion</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mjd</strong> – modified julian day</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>decimal year</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.mjd2datetime">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">mjd2datetime</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mjd</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#mjd2datetime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.mjd2datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts Modified Julian Day date to datime python instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mjd</strong> – modified julian day</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>datetime instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.mjd2gpsweek">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">mjd2gpsweek</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mjd</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#mjd2gpsweek"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.mjd2gpsweek" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts a modified julian day to gps week and gps day of week</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mjd</strong> – modified julian day</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>gps_week,day_of_week</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.decyear2cal">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">decyear2cal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">decyear</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#decyear2cal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.decyear2cal" title="Permalink to this definition">¶</a></dt>
+<dd><p>decimal year to calendar date conversion</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>decyear</strong> – decimal year</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>day of month,month,ut</p>
+</dd>
+<dt class="field-odd">Note</dt>
+<dd class="field-odd"><p>the input decimal year is assumed to account for leap years, that is the day of year is the     decimal of decyear * number of days in the year.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.decyear2dayno">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">decyear2dayno</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">decyear</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#decyear2dayno"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.decyear2dayno" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts decimal year to the day of year</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>decyear</strong> – decimal year</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>day of year,ut</p>
+</dd>
+<dt class="field-odd">Note</dt>
+<dd class="field-odd"><p>the input decimal year is assumed to account for leap years, that is the day of year is the     decimal of decyear * number of days in the year.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.decyear2mjd">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">decyear2mjd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">decyear</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#decyear2mjd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.decyear2mjd" title="Permalink to this definition">¶</a></dt>
+<dd><p>decimal year to modified julian day conversion</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>decyear</strong> – decimal year</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>modified julian day</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.decyear2datetime">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">decyear2datetime</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">decyear</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#decyear2datetime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.decyear2datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts a decimal date to a datime python instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>decyear</strong> – decimal year</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>datetime instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.decyear2epoch">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">decyear2epoch</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">decyear</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#decyear2epoch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.decyear2epoch" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts decimal year to formatted epoch %02d:%03d:%05d</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>decyear</strong> – decimal year</p>
+</dd>
+</dl>
+<p>:returns : ‘yy:doy:sec’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Note</dt>
+<dd class="field-odd"><p>the input decimal year is assumed to account for leap years, that is the day of year is the     decimal of decyear * number of days in the year.</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyacs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">cal2decyear</span><span class="p">(</span><span class="mi">01</span><span class="p">,</span><span class="mi">03</span><span class="p">,</span><span class="mi">2001</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">2001.16301369863</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">dec</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">decyear2epoch</span><span class="p">(</span><span class="mf">2001.16301369863</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;01:060:43200&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">decyear2epoch</span><span class="p">(</span><span class="mf">2000.16301369863</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;00:060:57284&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">decyear2epoch</span><span class="p">(</span><span class="n">pyacs</span><span class="o">.</span><span class="n">cal2decyear</span><span class="p">(</span><span class="mi">01</span><span class="p">,</span><span class="mi">03</span><span class="p">,</span><span class="mi">2000</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;00:061:43200&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.datetime_from_calarray">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">datetime_from_calarray</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">calarray</span></em>, <em class="sig-param"><span class="n">hour</span><span class="o">=</span><span class="default_value">12</span></em>, <em class="sig-param"><span class="n">minute</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">sec</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">ms</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#datetime_from_calarray"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.datetime_from_calarray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a datetime array from an array of calendar dates</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>calarray</strong> – 1D or 2D numpy array. Columns order are year,month,mday,hour,minute,second,microsecond</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>numpy 1D array of datime instances</p>
+</dd>
+<dt class="field-odd">Note</dt>
+<dd class="field-odd"><p>year,month,mday are mandatory. If not provided then hour=12, minute=0, sec=0,ms=0 (middle of the day)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.datetime2cal">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">datetime2cal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datetime</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#datetime2cal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.datetime2cal" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts from python datetime to calendar date</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>datetime</strong> – datetime instance</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>year,month,monthday,ut</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.datetime2dayno">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">datetime2dayno</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datetime</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#datetime2dayno"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.datetime2dayno" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts python datetime to dayno,year,ut</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>datetime</strong> – pythob datetime instance</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>year,dayno,ut</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.datetime2mjd">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">datetime2mjd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datetime</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#datetime2mjd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.datetime2mjd" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts a python datetime instance to a modified julian day</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>datetime</strong> – python datetime instance</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>modified julian day</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.datetime2decyear">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">datetime2decyear</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datetime</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#datetime2decyear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.datetime2decyear" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts a python datetime instance to decimal year</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>datetime</strong> – python datetime instance or array of it</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>decimal year</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.datetime_round_second">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">datetime_round_second</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">my_datetime</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#datetime_round_second"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.datetime_round_second" title="Permalink to this definition">¶</a></dt>
+<dd><p>rounds a python datetime instance to the nearest second</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>datetime</strong> – python datetime instance or array of it</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>new rounded datetime</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.gpsweek2mjd">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">gpsweek2mjd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">gpsweek</span></em>, <em class="sig-param"><span class="n">dow</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#gpsweek2mjd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.gpsweek2mjd" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts a GPS week and dow to modified julian day</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gpsweek</strong><strong>,</strong><strong>dow</strong> – gps week, day of week (0 is sunday, 6 saturday)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>modified julian day</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.epoch2decyear">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">epoch2decyear</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">epoch</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#epoch2decyear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.epoch2decyear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts an epoch string used in the SINEX format ‘YY:DOY:SOD’ e.g.’17:100:43185’ into a decimal year</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>epoch</strong> – epoch formatted string or list of epochs</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>decimal year or array of decimal years</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.jd2mjd">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">jd2mjd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">jd</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#jd2mjd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.jd2mjd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a Julian day to a Modified Julian day</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>jd</strong> – Julian day</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>jd-2400000.5</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.mjd2jd">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">mjd2jd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mjd</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#mjd2jd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.mjd2jd" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts a Modified Julian day to Julian day</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mjd</strong> – Modified Julian day</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>mjd + 2400000.5</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.yr2year">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">yr2year</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">yr</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#yr2year"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.yr2year" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts two digits year to four digits year</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>yr</strong> – 2-digits year (e.g. 01)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>4-digit years (2001). This is yr+2000 if yr&lt;80 yr+1900 otherwise.</p>
+</dd>
+<dt class="field-odd">Note</dt>
+<dd class="field-odd"><p>This is an heritage from a bad practice in the geodesy community assuming that origin of the universe started with GPS. See example.</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyacs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">yr2year</span><span class="p">(</span><span class="mi">96</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1996</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">yr2year</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2011</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.year2yr">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">year2yr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">year</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#year2yr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.year2yr" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts 4-digits year to 2-digits year</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>yr</strong> – 4-digits year (e.g. 2001)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>2-digit years (01). This is yr-2000 if yr&lt;80 yr-1900 otherwise.</p>
+</dd>
+<dt class="field-odd">Note</dt>
+<dd class="field-odd"><p>This is an heritage from a bad practice in the geodesy community assuming that origin of the universe started with GPS in 1980. See example.</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyacs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">year2yr</span><span class="p">(</span><span class="mi">1996</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">96</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">year2yr</span><span class="p">(</span><span class="mi">2011</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">11</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.leap_year">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">leap_year</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">year</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#leap_year"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.leap_year" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns true if year is a leap year.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>year</strong> – year in YYYY</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if year is leap, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.uts2hmsmicros">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">uts2hmsmicros</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">uts</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#uts2hmsmicros"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.uts2hmsmicros" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts decimal seconds on a day (0-86400) to hours, min, seconde, microseconds</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uts</strong> – decimal seconds since 00:00:00.0. Must be in the [0.,86400.[ range.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>hours,minutes,seconds,microseconds</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int,int,int,float</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; import pyacs
+&gt;&gt;&gt; pyacs.uts2hmsmicros(86399.999999)
+&gt;&gt;&gt; (23, 59, 59, 999999.0000069374)
+&gt;&gt;&gt; pyacs.uts2hmsmicros(86400)
+&gt;&gt;&gt; !!!  86400 uts out of range [0- 86400.0 [
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.hmsmicros2uts">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">hmsmicros2uts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h</span></em>, <em class="sig-param"><span class="n">mn</span></em>, <em class="sig-param"><span class="n">s</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">microsecond</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#hmsmicros2uts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.hmsmicros2uts" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts hour minute seconds to uts</p>
+<p>:param hours,minutes,seconds,microseconds
+:returns: uts</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.hmsmicros2ut">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">hmsmicros2ut</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h</span></em>, <em class="sig-param"><span class="n">mn</span></em>, <em class="sig-param"><span class="n">s</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">microsecond</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#hmsmicros2ut"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.hmsmicros2ut" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts hour minute seconds to fractional day</p>
+<p>:param hours,minutes,seconds,microseconds
+:returns: ut</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.ut2uts">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">ut2uts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ut</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#ut2uts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.ut2uts" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts fractional day to seconds</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ut</strong> – fractional day in [0.,1.[</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>ut * 60.*60.*24.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.uts2ut">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">uts2ut</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">uts</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#uts2ut"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.uts2ut" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts uts in seconds to fractional day</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>uts</strong> – seconds in [0.,86400.[</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>uts / (60.*60.*24.)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.day_since_decyear">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">day_since_decyear</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">decyear</span></em>, <em class="sig-param"><span class="n">ref_decyear</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#day_since_decyear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.day_since_decyear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the number of days since a reference date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>decyear</strong> – decimal year</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>days elapsed since decyear (float)</p>
+</dd>
+<dt class="field-odd">Note</dt>
+<dd class="field-odd"><p>negative number means before the reference date</p>
+</dd>
+<dt class="field-even">Note</dt>
+<dd class="field-even"><p>a useful function for postseismic analysis.</p>
+</dd>
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyacs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ref_decyear</span><span class="o">=</span><span class="n">pyacs</span><span class="o">.</span><span class="n">cal2decyear</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2016</span><span class="p">,</span><span class="n">ut</span><span class="o">=</span><span class="n">pyacs</span><span class="o">.</span><span class="n">hmsmicros2ut</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">33</span><span class="p">))</span> <span class="c1"># Ecuador, Mw 7.8 EQ</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">day_since_decyear</span><span class="p">(</span><span class="n">pyacs</span><span class="o">.</span><span class="n">cal2decyear</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2016</span><span class="p">,</span><span class="n">ut</span><span class="o">=</span><span class="n">pyacs</span><span class="o">.</span><span class="n">hmsmicros2ut</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">32</span><span class="p">)),</span><span class="n">ref_decyear</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">0.9999884259232203</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">day_since_decyear</span><span class="p">(</span><span class="n">pyacs</span><span class="o">.</span><span class="n">cal2decyear</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2016</span><span class="p">,</span><span class="n">ut</span><span class="o">=</span><span class="n">pyacs</span><span class="o">.</span><span class="n">hmsmicros2ut</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">33</span><span class="p">)),</span><span class="n">ref_decyear</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">0.9999999999854481</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">day_since_decyear</span><span class="p">(</span><span class="n">pyacs</span><span class="o">.</span><span class="n">cal2decyear</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2017</span><span class="p">,</span><span class="n">ut</span><span class="o">=</span><span class="n">pyacs</span><span class="o">.</span><span class="n">hmsmicros2ut</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">33</span><span class="p">)),</span><span class="n">ref_decyear</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">364.9999999999345</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ld</span><span class="o">=</span><span class="n">pyacs</span><span class="o">.</span><span class="n">mjd2decyear</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">pyacs</span><span class="o">.</span><span class="n">cal2mjd</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2016</span><span class="p">),</span><span class="n">pyacs</span><span class="o">.</span><span class="n">cal2mjd</span><span class="p">(</span><span class="mi">19</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2016</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ld</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">array</span><span class="p">([</span> <span class="mf">2016.283</span><span class="p">,</span>  <span class="mf">2016.286</span><span class="p">,</span>  <span class="mf">2016.288</span><span class="p">,</span>  <span class="mf">2016.291</span><span class="p">,</span>  <span class="mf">2016.294</span><span class="p">,</span>  <span class="mf">2016.296</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">day_since_decyear</span><span class="p">(</span><span class="n">ld</span><span class="p">,</span><span class="n">ref_decyear</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">3.499</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.499</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.499</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.499</span><span class="p">,</span>  <span class="mf">0.501</span><span class="p">,</span>  <span class="mf">1.501</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.guess_date">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">guess_date</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#guess_date"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.guess_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tries to guess a date from input parameter
+returns a decimal year</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>date</strong> – date as string or float</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>decimal year</p>
+</dd>
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyacs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyacs</span><span class="o">.</span><span class="n">guess_date</span><span class="p">(</span><span class="s1">&#39;2016/04/16&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">2016.2909836065573</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.decyear2seconds">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">decyear2seconds</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">np_decyear</span></em>, <em class="sig-param"><span class="n">rounding</span><span class="o">=</span><span class="default_value">'day'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#decyear2seconds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.decyear2seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts decimal year to a seconds since 1980/1/1/0/0/0</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>rounding</strong> – controls rounding. ‘day’ means at 12:00:00,</p>
+</dd>
+</dl>
+<p>‘hour’ at 00:00, ‘minute’ at the current minute with 00 seconds, ‘second’ at the integer of the current second.
+:return: 1D integer (np.int64) numpy array</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pyacs.lib.astrotime.seconds2datetime">
+<code class="sig-prename descclassname">pyacs.lib.astrotime.</code><code class="sig-name descname">seconds2datetime</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">seconds</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyacs/lib/astrotime.html#seconds2datetime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyacs.lib.astrotime.seconds2datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>converts seconds since 1980/1/1/0/0/0 to a datetime object</p>
+<p>:return:a 1D numpy array of datetime object</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pyacs.lib.coordinates.html" class="btn btn-neutral float-right" title="pyacs.lib.coordinates module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pyacs.lib.html" class="btn btn-neutral float-left" title="pyacs.lib package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016, Jean-Mathieu Nocquet IRD/Geoazur
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
